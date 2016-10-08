@@ -1,0 +1,31 @@
+body{
+}
+.middle{
+    position: absolute;
+    left: 50%;
+    background: #ccc;
+    width: 400px;
+    height: 200px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    margin: 0 auto;
+    overflow: hidden;
+}
+.left_rec{
+    width: 100px;
+    height: 100px;
+    border-radius: 0 0 50% 0;
+    background: #fc0;
+    position: absolute;
+    top: -50px;
+    left: -50px;
+}
+.right_rec{
+    width: 100px;
+    height: 100px;
+    border-radius:  50% 0 0 0;
+    position: absolute;
+    background: #ffcc00;
+    bottom: -50px;
+    right: -50px;
+}
