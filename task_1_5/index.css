@@ -7,5 +7,18 @@ body{
     min-width: 750px;
 }
 .header{
-
+    height: 70px;
+    width: 100%;
+    background: #333333;
+    display: table;
+    vertical-align: middle;
+}
+.header span{
+    display: table-cell;
+    vertical-align: middle;
+    height: 70px;
+}
+.header span img{
+    margin-left: 35px;
+    cursor: pointer;
 }
