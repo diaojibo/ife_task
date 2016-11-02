@@ -22,3 +22,60 @@ body{
     margin-left: 35px;
     cursor: pointer;
 }
+nav ul{
+    float: right;
+    margin: 0px;
+    padding: 0px;
+}
+nav ul li{
+    line-height: 70px;
+    float: left;
+    margin-right: 20px;
+}
+nav ul li a{
+    color: #FFF;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color: gray;
+}
+aside{
+    background: #fff;
+    float:right;
+    width: 350px;
+    margin-top: 40px;
+    margin-right: 20px;
+    padding: 20px;
+    box-shadow: 2px 2px 2px #848484;
+}
+.color_gray{
+    color: gray;
+}
+.text_indent{
+    text-indent: 2em;
+}
+.no_list{
+    list-style: none;
+}
+.aside{
+    padding-left: 10px;
+    border-left: 3px #ccc solid;
+}
+.bot{
+    vertical-align: bottom;
+}
+.input_message{
+    width: 30%;
+    text-align: right;
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 10px;
+    vertical-align: top;
+    margin-bottom: 0px;
+}
+.demand{
+    font-size: 13px;
+    color: gray;
+    margin-left: 37.5%;
+    margin-top: 10px;
+}
