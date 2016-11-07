@@ -88,3 +88,34 @@ header nav ul li:nth-child(4):hover~.move{
 header nav ul li:nth-child(5):hover~.move{
     left: 80%;
 }
+header .banner-right{
+    font-size: 14px;
+    color: #E53C3C;
+    height: 60px;
+    width: 7%;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+
+    position: relative;
+    left: 50%;
+
+    background: url(images/icon-2.jpg) no-repeat left;
+    background-size: 15px 18px;
+}
+header .banner-right .move{
+    width: 0;
+    border-top: 2px solid #E53C3C;
+    position: absolute;
+    top: 45px;
+    left: 25%;
+
+    -webkit-transition:width 0.4s ease-in-out;
+    -moz-transition:width 0.4s ease-in-out;
+    transition:width 0.4s ease-in-out;
+}
+header .banner-right:hover .move{
+    width: 50px;
+}
