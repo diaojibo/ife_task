@@ -119,3 +119,48 @@ header .banner-right .move{
 header .banner-right:hover .move{
     width: 50px;
 }
+#section-1{
+    width: 100%;
+    height: 650px;
+    margin-top: -2px;
+    background-image: url(images/pic01.jpg);
+    background-size: 100% auto;
+}
+#section-1 .mes{
+    position: absolute;
+    top: 270px;
+    left: 120px;
+}
+#section-1 .mes p{
+    font-size: 22px;
+    color: #fff;
+    margin: 0;
+}
+#section-1 .mes p:first-child{
+    font-family: Arial;
+    font-size: 60px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+#section-1 .mes p:last-of-type{
+    margin-bottom: 60px;
+}
+#section-1 .mes span{
+    width: 300px;
+    height: 60px;
+    display: inline-block;
+    line-height: 60px;
+    text-align: center;
+    font-size: 28px;
+    color: #fff;
+    background: #E53C3C;
+    cursor: pointer;
+
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+#section-1 .mes span:hover{
+    background: #E31212;
+    border-radius: 3px;
+}
