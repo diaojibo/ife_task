@@ -164,3 +164,61 @@ header .banner-right:hover .move{
     background: #E31212;
     border-radius: 3px;
 }
+#section-2{
+    width: 100%;
+    height: 240px;
+    font-size: 0;
+}
+#section-2 .cell{
+    width: 25%;
+    display: inline-block;
+    position: relative;
+    top: 0;
+}
+#section-2 .cell .img{
+    width: 100%;
+    height: 130px;
+    display: inline-block;
+    line-height: 130px;
+    text-align: center;
+}
+#section-2 .cell .img img{
+    position: relative;
+    top: 30px;
+}
+#section-2 .cell .mes{
+    width: 100%;
+    height: 50px;
+    font-size: 13px;
+    color: #534141;
+    text-align: center;
+    box-sizing: border-box;
+    border-right: 2px solid #534141;
+
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+#section-2 .cell:hover .mes{
+    color: #BE4F48;
+}
+#section-2 .cell:last-child .mes{
+    border:none;
+}
+#section-3{
+    width: 100%;
+    height: 400px;
+    background: #EDEAEA;
+    text-align: center;
+}
+#section-3 .img{
+    position: relative;
+    top: 80px;
+}
+#section-3 .mes{
+    font-size: 50px;
+    color: #534141;
+
+    position: relative;
+    top: 100px;
+}
