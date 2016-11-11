@@ -341,7 +341,7 @@ header .banner-right:hover .move{
     cursor: pointer;
 }
 #section-4 .options .select .option ul li:hover{
-    background: url(../images/icon-8.png) no-repeat 10px 8px,#BF4E48;
+    background: url(images/icon-8.png) no-repeat 10px 8px,#BF4E48;
     background-size: 20px;
     color: #fff;
 }
@@ -368,4 +368,54 @@ header .banner-right:hover .move{
 #section-4 input[type="submit"]:hover{
     background-color: #E31212;
     border-radius: 3px;
+}
+#section-5{
+    width: 100%;
+    height: 500px;
+    background-color: #EDEAEA;
+    text-align: center;
+    font-size: 0;
+}
+#section-5 .cell{
+    display: inline-block;
+    width: 20%;
+    height: 400px;
+    position: relative;
+    top: 50px;
+    box-sizing: border-box;
+}
+#section-5 .cell .img{
+    width: 100%;
+    height: 320px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#section-5 .cell .img img{
+    height: 300px;
+    cursor: pointer;
+}
+#section-5 .cell .mes{
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+}
+#section-5 .cell .mes p:first-child{
+    font-size: 14px;
+    color: #44403F;
+    margin: 0;
+}
+#section-5 .cell .mes p:last-child{
+    font-size: 12px;
+    color: #B3AFAC;
+}
+#section-5 .cell:nth-child(2)>.mes{
+    padding-top: 30px;
+}
+#section-5 .cell:nth-child(2)>.mes p:first-child{
+    font-size: 24px;
+    text-indent: 30px;
+    letter-spacing: 30px;
+}
+#section-5 .cell:nth-child(2)>.mes p:last-child{
+    margin: 0;
 }
