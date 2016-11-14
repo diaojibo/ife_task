@@ -417,5 +417,5 @@ header .banner-right:hover .move{
     letter-spacing: 30px;
 }
 #section-5 .cell:nth-child(2)>.mes p:last-child{
-    margin: 0px;
+    margin: 0;
 }
