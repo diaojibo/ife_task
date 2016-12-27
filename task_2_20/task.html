@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>task20</title>
+    <style type="text/css">
+        #result{
+            display: flex;
+        }
+        #result div{
+            background: pink;
+            height: 30px;
+            line-height: 30px;
+            min-width: 30px;
+            text-align: center;
+            margin: 5px;
+        }
+        #result span{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+  <div>
+      <textarea rows="5" cols="20" placeholder="请输入字符并用不同符号分割" id="textArea"></textarea>
+      <button id="insert">insert</button>
+      <button id="search">search</button>
+      <input id="searchInput" type="text">
+  </div>
+  <div id="result">
+  </div>
+<Script type="text/javascript">
+    $ = function (e1) {
+        return document.querySelector(e1);
+    }
+
+    var arrData = [];
+    
+    $('#insert').onclick = function () {
+        var str = $('#textArea').value.trim();
+        var arrWord = str.split(/[^0-9a-zA-Z\u4e00-\u9fa5]+/).filter(function (e) {
+            if(e!=null && e.length > 0){
+                return true;
+            }else{
+                return false;
+            }
+        });
+        arrData = arrData.concat(arrWord);
+        render();
+    };
+    $('#search').onclick = function () {
+      var str = $('#searchInput').value.trim();
+        render(str);
+    };
+    function render(str) {
+        $('#result').innerHTML = arrData.map(function (d) {
+            if(str != null && str.length>0){
+                d = d.replace(new RegExp(str,"g"),"<span class='select'>"+str+"</span>");
+            }
+            return "<div>"+d+"</div>";
+        }).join('');
+    }
+</Script>
+</body>
+</html>
