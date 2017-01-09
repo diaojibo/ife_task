@@ -8,3 +8,9 @@
     width: 1100px;
     height: 950px;
 }
+.gamepad {
+    float: left;
+    margin:0 auto;
+    width: 800px;
+    height: 100%;
+}
