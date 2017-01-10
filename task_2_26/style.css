@@ -58,3 +58,114 @@
     height: 5px;
     background-color: #70ed3f;
 }
+
+.screen .palnet{
+   position: absolute;
+    top:50%;
+    left:50%;
+    z-index: 5;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background: url(min-iconfont-planet.png) no-repeat;
+    background-size: 100px 100px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.screen .orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    border: 1px dashed #999;
+    border-radius: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#orbit1 {
+    width: 200px;
+    height: 200px;
+}
+
+#orbit2 {
+    width: 300px;
+    height: 300px;
+}
+
+#orbit3 {
+    width: 400px;
+    height: 400px;
+}
+
+#orbit4 {
+    width: 500px;
+    height: 500px;
+}
+#spaceship00 {
+    top: 350px;
+    left: 275px;
+    -webkit-transform-origin: 125px 45px;
+    transform-origin: 125px 45px;
+}
+
+#spaceship01 {
+    top: 350px;
+    left: 225px;
+    -webkit-transform-origin: 175px 45px;
+    transform-origin: 175px 45px;
+}
+
+#spaceship02 {
+    top: 350px;
+    left: 175px;
+    -webkit-transform-origin: 225px 45px;
+    transform-origin: 225px 45px;
+}
+
+#spaceship03 {
+    top: 350px;
+    left: 125px;
+    -webkit-transform-origin: 275px 45px;
+    transform-origin: 275px 45px;
+}
+@-webkit-keyframes circle {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes circle {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 10px;
+}
+.btn {
+    display: inline-block;
+    border: 1px solid #666;
+    border-radius: 2px;
+    padding: 2px 3px;
+    min-width: 60px;
+    text-align: center;
+    color: #999;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.btn:hover {
+    border: 1px solid #000;
+    color: #000;
+}
+
+.wrapper {
+    margin-bottom: 5px;
+}
