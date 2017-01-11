@@ -59,7 +59,7 @@
     background-color: #70ed3f;
 }
 
-.screen .palnet{
+.screen .planet{
    position: absolute;
     top:50%;
     left:50%;
@@ -72,6 +72,16 @@
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+.screen .spaceship{
+    display: none;
+    position: absolute;
+    z-index:10;
+    width: 50px;
+    height: 50px;
+    background: url(min-iconfont-rocket-active.png) no-repeat;
+    background-size: 50px 50px;
+}
+
 
 .screen .orbit {
     position: absolute;

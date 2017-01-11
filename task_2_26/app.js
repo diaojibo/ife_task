@@ -32,6 +32,7 @@
         this.timer = null;
     };
 
+    //动力系统
     SpaceShip.prototype.dynamicManager = function () {
         var self = this;
         var fly = function () {
@@ -54,6 +55,223 @@
         };
     };
 
+    //能源系统
+    SpaceShip.prototype.powerManager = function () {
+        var self = this;
+
+        var charge = function () {
+            var chargeRate = DEFAULT_CHARGE_RATE;
+            var timer = setInterval(function () {
+                if(self.currState == "fly" || self.currState == "destroy"){
+                    clearInterval(timer);
+                    return false;
+                }
+                if(self.power >= 100){
+                    clearInterval(timer);
+                    self.power = 100;
+                    return false;
+                }
+                self.power += chargeRate;
+                AnimUtil.updatePower(self.id,self.power);
+            },20);
+            ConsoleUtil.show("Spaceship No." + self.id + "is charging.");
+        };
+
+        var discharge = function () {
+            var dischargeRate = DEFAULT_DISCHARGE_RATE;
+            var timer = setInterval(function () {
+                if(self.currState == "stop" || self.currState == "destroy"){
+                    clearInterval(timer);
+                    return false;
+                }
+                if(self.power<=0){
+                    clearInterval(timer);
+                    self.power = 0;
+                    self.stateManager().changeState("stop");
+                    return false;
+                }
+                self.power -= dischargeRate;
+                AnimUtil.updatePower(self.id,self.power);
+            },20);
+            ConsoleUtil.show("SpaceShip No." + self.id + "is discharging.");
+        };
+        return {
+            charge:charge,
+            discharge:discharge
+        }
+    };
+
+    //状态系统
+    SpaceShip.prototype.stateManager = function () {
+        var self = this;
+        var states = {
+            fly:function (state) {
+                self.currState = "fly";
+                self.dynamicManager().fly();
+                self.powerManager().discharge();
+            },
+            stop:function (state) {
+                self.currState = "stop";
+                self.dynamicManager().stop();
+                self.powerManager().charge();
+            },
+            destroy:function (state) {
+                self.currState = "destroy";
+                AnimUtil.destroy(self.id);
+                self.mediator.remove(self);
+            }
+        };
+
+        var changeState = function (state) {
+            states[state]();
+            ConsoleUtil.show("SpaceShip No." + self.id + "state is" + state);
+        };
+
+        return{
+          changeState:changeState
+        };
+    };
+
+    //信号系统
+    SpaceShip.prototype.signalManager = function () {
+        var self = this;
+        return {
+            receive:function (msg, from) {
+                if(self.currState != msg.cmd && self.id == msg.id){
+                    self.stateManager().changeState(msg.cmd);
+                }
+            }
+        };
+    };
+
+
+
+    //指挥官
+    var Commander = function () {
+        this.id = "Rock";
+        this.msgs = [];
+        this.mediator = null;
+    };
+
+    Commander.prototype.send = function (msg) {
+        this.mediator.send(msg);
+        this.msgs.push(msg);
+    };
+
+    //中转系统
+    var Mediator = function () {
+        var spaceships = [];
+        var commander = null;
+
+        return {
+            register:function (obj) {
+                if(obj instanceof Commander){
+                    commander = obj;
+                    obj.mediator = this;
+                    ConsoleUtil.show("mediator register" + "Commander " + obj.id);
+                    return true;
+                }
+                if(obj instanceof SpaceShip){
+                    spaceships[obj.id] = obj;
+                    obj.mediator = this;
+                    ConsoleUtil.show("mediator register" + " SpaceShip "+obj.id);
+                    return true;
+                }
+                ConsoleUtil.show("mediator register" + "SpaceShip " + obj.id);
+                return false;
+            },
+            send : function (msg, from, to) {
+                var self = this;
+                setTimeout(function () {
+                    var success = Math.random() > 0.3;
+                    if(success){
+                        ConsoleUtil.show("send success");
+                        if(to){
+                            to.receive(msg,from);
+                        }else{
+                            if(msg.cmd == "launch"){
+                                self.create(msg);
+                                return true;
+                            }
+                            for(var key in spaceships){
+                                if(spaceships[key] !== from){
+                                    if(spaceships[key] !== from){
+                                        spaceships[key].signalManager().receive(msg,from);
+                                    }
+                                }
+                            }
+                        }
+                    }else {
+                        ConsoleUtil.show("send failed!");
+                    }
+                },1000);
+            },
+            remove : function (obj) {
+                if(obj instanceof SpaceShip){
+                    ConsoleUtil.show("destroy spaceship No." + obj.id);
+                    spaceships[obj.id] = undefined;
+                    delete obj;
+                    return true;
+                }
+                ConsoleUtil.show("mediator remove failed");
+                return false;
+            },
+
+            getSpaceShips:function () {
+                return spaceships;
+            },
+
+            create:function (msg) {
+                if(spaceships[msg.id] != undefined){
+                    ConsoleUtil.show("Spaceship already exists");
+                    return false;
+                }
+                var spaceship = new SpaceShip(msg.id);
+                this.register(spaceship);
+                AnimUtil.create(msg.id,spaceship.power);
+            }
+        }
+    };
+
+
+    var Message = function (target,command) {
+        this.id = target;
+        this.cmd = null;
+        switch(command){
+            case "launch":
+            case "stop":
+            case "fly":
+            case "destroy":
+                this.cmd = command;
+                break;
+            default:
+                alert("invalid command");
+        }
+    };
+
+    //按钮句柄
+    var buttonHandler = function (commander) {
+        var id = null;
+        var cmd = null;
+        $(".btn").on("click",function () {
+            var cmdName = $(this).attr("name");
+            switch (cmdName){
+                case "launch":
+                case "fly":
+                case "stop":
+                case "destroy":
+                    id = $(this).parent().index();
+                    cmd = cmdName;
+                    break;
+                default:
+                    alert("invalid command");
+                    break;
+            }
+            var message = new Message(id,cmd);
+            commander.send(message);
+        })
+    };
+
 
     var AnimUtil = (function() {
         var mediator = null;
@@ -73,7 +291,7 @@
                 // $(target).addClass("active");
                 $(target).css({
                     "transform": mvDeg,
-                    "-webkit-transform": mvDeg,
+                    "-webkit-transform": mvDeg
                 });
             },
             stop: function(id) {
@@ -124,6 +342,6 @@
         var commander = new Commander();
         var mediator = new Mediator();
         mediator.register(commander);
-        butttonHandler(commander);
+        buttonHandler(commander);
     };
 })();
