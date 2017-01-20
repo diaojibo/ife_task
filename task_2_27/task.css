@@ -1,0 +1,157 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "SimHei";
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: url(img/space.jpg) no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+}
+
+.space {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cmd {
+  position: absolute;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.cmd fieldset {
+  margin: 10px;
+}
+
+.earth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+  width: 100px;
+  height: 100px;
+  background: url(img/earth.jpg) no-repeat;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+#createBtn {
+  margin-left: 60px;
+  height: 40px;
+  width: 200px;
+  font-size: 24px;
+  line-height: 40px;
+}
+
+.ship1 {
+  transform-origin: 80px 80px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  border-radius: 50%;
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 40px;
+  height: 40px;
+  background: url(img/ufo.jpg) no-repeat 40% 40%;
+  background-color: transparent;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.ship2 {
+  transform-origin: 120px 120px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  border-radius: 50%;
+  position: absolute;
+  top: -70px;
+  left: -70px;
+  width: 40px;
+  height: 40px;
+  background: url(img/ufo.jpg) no-repeat 40% 40%;
+  background-color: transparent;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.ship3 {
+  transform-origin: 160px 160px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  border-radius: 50%;
+  position: absolute;
+  top: -110px;
+  left: -110px;
+  width: 40px;
+  height: 40px;
+  background: url(img/ufo.jpg) no-repeat 40% 40%;
+  background-color: transparent;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.ship4 {
+  transform-origin: 200px 200px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  border-radius: 50%;
+  position: absolute;
+  top: -150px;
+  left: -150px;
+  width: 40px;
+  height: 40px;
+  background: url(img/ufo.jpg) no-repeat 40% 40%;
+  background-color: transparent;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.screen {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  width: 400px;
+  background-color: #FFFFFF;
+  text-align: center;
+  opacity: 0.4;
+}
+
+.screen:hover {
+  opacity: 0.8;
+}
+
+/*# sourceMappingURL=task26.css.map */
