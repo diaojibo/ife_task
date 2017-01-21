@@ -72,8 +72,7 @@ body {
   left: -30px;
   width: 40px;
   height: 40px;
-  background: url(img/ufo.jpg) no-repeat 40% 40%;
-  background-color: transparent;
+  background: transparent url(img/ufo.jpg) no-repeat 40% 40%;
   font-size: 14px;
   line-height: 40px;
   text-align: center;
